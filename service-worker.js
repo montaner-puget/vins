@@ -1,6 +1,7 @@
 var CACHE_NAME = 'montaner-dependencies-cache';
 // Files required to make this app work offline
 var REQUIRED_FILES = [
+    "https://lesliecordier.github.io/mtnr/index.html",
     "https://lesliecordier.github.io/mtnr/css/jquery.mobile-1.4.5.css", 
     "https://lesliecordier.github.io/mtnr/css/style.css", 
     "https://lesliecordier.github.io/mtnr/js/jquery.js", 
