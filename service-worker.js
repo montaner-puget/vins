@@ -1,4 +1,4 @@
-importScripts('indexeddb.js');
+importScripts('js/indexeddb.js');
 
 
 var CACHE_NAME = 'montaner-v1';
