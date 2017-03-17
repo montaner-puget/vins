@@ -30,9 +30,9 @@
         req.onupgradeneeded = function (evt) {
             console.log(evt);
             // Loader
-            $('#vins, #offres').css('display', 'none');
-            new imageLoader(cImageSrc, 'startAnimation()');
-            $('#loaderImage').css('display', 'block');
+//            $('#vins, #offres').css('display', 'none');
+//            new imageLoader(cImageSrc, 'startAnimation()');
+//            $('#loaderImage').css('display', 'block');
             
             // Create objectStores
             console.log("openDb.onupgradeneeded");
