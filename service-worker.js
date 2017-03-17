@@ -1,4 +1,4 @@
-importScripts('js/jquery.js','js/indexeddb.js','js/loader.js','js/fonctions.carte.js','js/alasql.min.js','xls.core.min.js');
+importScripts('js/indexeddb.js','js/loader.js','js/fonctions.carte.js','js/alasql.min.js','xls.core.min.js');
 
 
 var CACHE_NAME = 'montaner-v1';
