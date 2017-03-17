@@ -66,8 +66,8 @@ self.addEventListener('activate', function (event) {
     var cacheWhitelist = ['montaner-v1'];
 
     event.waitUntil(
-        openDb()).then(
-        setTimeout(function(){
+        openDb()).then(function(){
+        console.log('open db');
             createCheckboxRegion(objVins);
             createCheckboxDomaine(objVins);
             createCheckboxCouleur(objVins);
@@ -81,9 +81,9 @@ self.addEventListener('activate', function (event) {
             showHideLines(objVins);
             createPopup(objVins);
             checkAll(objVins);
-        }, 1000)).then(  
+        }).then(function(){  
             
-        self.clients.claim()).then(   
+        self.clients.claim()}).then(function(){   
             
         caches.keys().then(function (keyList) {
             return Promise.all(keyList.map(function (key) {
@@ -92,7 +92,7 @@ self.addEventListener('activate', function (event) {
                 }
             }));
         })
-    );
+        });
 });
 
 
