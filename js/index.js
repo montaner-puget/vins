@@ -1,3 +1,5 @@
+openDb();
+
 //Register the ServiceWorker
 
 if ('serviceWorker' in navigator) { 
