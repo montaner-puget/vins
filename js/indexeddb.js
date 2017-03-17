@@ -61,7 +61,7 @@
     }
 
 
-    function getVins() {
+    function getVins(db) {
 
         var store = db.transaction(DB_STORE_NAME).objectStore(DB_STORE_NAME);
         var req;
