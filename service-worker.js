@@ -1,3 +1,6 @@
+importScripts('js/indexeddb.js');
+
+
 var CACHE_NAME = 'montaner-v1';
 // Files required to make this app work offline
 var REQUIRED_FILES = [
