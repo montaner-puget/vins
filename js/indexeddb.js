@@ -20,7 +20,6 @@
             db = this.result;
             objVins = getVins();
             console.log("openDb DONE");
-            return objVins;
             
         }
         req.onerror = function (evt) {
