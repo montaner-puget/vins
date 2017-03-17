@@ -18,7 +18,7 @@
         console.log("openDb ...");
         req.onsuccess = function (evt) {
             db = this.result;
-            console.log("openDb DONE");
+            console.log("openDb DONE"+evt);
             return db;
             
         }
