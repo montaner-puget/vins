@@ -1,5 +1,5 @@
-openDb();
-
+var objvins = openDb();
+console.log('OBJ: '+objvins);
 //Register the ServiceWorker
 
 if ('serviceWorker' in navigator) { 
