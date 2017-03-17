@@ -66,6 +66,25 @@ self.addEventListener('activate', function (event) {
     var cacheWhitelist = ['montaner-v1'];
 
     event.waitUntil(
+        openDb()).then(
+        setTimeout(function(){
+            createCheckboxRegion(objVins);
+            createCheckboxDomaine(objVins);
+            createCheckboxCouleur(objVins);
+            addLignesVins(objVins);
+
+            $('#listevins .tablesorter').tablesorter({sortList: [[0, 0]], headers: {2: {sorter: 'digit'}}});
+
+            $("#resultats_recherche").hide();
+            $("#search").val("");
+            search(objVins);
+            showHideLines(objVins);
+            createPopup(objVins);
+            checkAll(objVins);
+        }, 1000)).then(  
+            
+        self.clients.claim()).then(   
+            
         caches.keys().then(function (keyList) {
             return Promise.all(keyList.map(function (key) {
                 if (cacheWhitelist.indexOf(key) === -1) {
@@ -74,7 +93,6 @@ self.addEventListener('activate', function (event) {
             }));
         })
     );
-    event.waitUntil(self.clients.claim());
 });
 
 
