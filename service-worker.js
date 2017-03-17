@@ -69,7 +69,7 @@ self.addEventListener('activate', function (event) {
     var cacheWhitelist = ['montaner-v1'];
 
     event.waitUntil(
-            console.log(openDb()));
+            console.log(openDb()),
         openDb().then(function(objVins){
         console.log('open db');
             createCheckboxRegion(objVins);
