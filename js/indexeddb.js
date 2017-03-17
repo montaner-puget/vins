@@ -14,7 +14,7 @@
      * Open database or create it if not exists
      */
     function openDb() {
-        var req = window.indexedDB.open(DB_NAME, DB_VERSION);
+        var req = indexedDB.open(DB_NAME, DB_VERSION);
         console.log("openDb ...");
         req.onsuccess = function (evt) {
             db = this.result;
