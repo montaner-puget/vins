@@ -18,8 +18,8 @@
         console.log("openDb ...");
         req.onsuccess = function (evt) {
             db = this.result;
-            objVins = getVins();
             console.log("openDb DONE");
+            return db;
             
         }
         req.onerror = function (evt) {

@@ -1,4 +1,5 @@
-var objvins = getVins();
+var db = openDb();
+var objvins = getVins(db);
 console.log('OBJ: '+objvins);
 //Register the ServiceWorker
 
