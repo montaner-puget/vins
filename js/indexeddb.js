@@ -200,7 +200,7 @@ setTimeout(function () {
     showHideLines(objVins);
     createPopup(objVins);
     checkAll(objVins);
-    urlsPdf.push(getUrlsPdf());
+    getUrlsPdf();
     console.dir(urlsPdf);
 }, 1000);
 
