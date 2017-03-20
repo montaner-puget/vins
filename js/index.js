@@ -18,6 +18,7 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
   );
   
         var opendb = new Promise(function(resolve){
+            console.log("promise...open db");
             resolve(openDb());
         });
         opendb.
