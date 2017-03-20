@@ -20,16 +20,11 @@
         1. Général         
  *-----------------------*/
 
-@font-face {
-	font-family: "Ubuntu";
-	src: url('font/Ubuntu-Regular.ttf');
-}
-
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Ubuntu', serif;
-    font-size: 20px;
+    font-family: 'Gentium Book Basic', serif;
+    font-size: 24px;
     overflow:hidden;
 }
 
@@ -85,7 +80,7 @@ body{
 
 #titreCarte{
     color: #fff;
-    font-family: 'Ubuntu', serif;
+    font-family: 'Gentium Book Basic', serif;
     font-size: 50px;
     letter-spacing: 4px;
     background-color: #000;
@@ -117,7 +112,7 @@ body{
 #bandeauTitre{
     background-color: #cc0000;
     color: #fff;
-    font-family: 'Ubuntu', serif;
+    font-family: 'Gentium Book Basic', serif;
     font-size: 34px;
     letter-spacing: 4px;
     width: 100%;
@@ -168,7 +163,7 @@ body{
 
 .ui-controlgroup label{
     font-size: 24px;
-    font-family: 'Ubuntu', serif;
+    font-family: 'Gentium Book Basic', serif;
 }
 
 .tailleFieldset>div{
@@ -217,7 +212,7 @@ a.chk:visited, a.chk:hover {
 }
 
 th {
-    font-family: 'Ubuntu', serif;
+    font-family: times;
 }
 
 .ligneQuantite{
@@ -423,7 +418,7 @@ div.table-prix>table {
     bottom: 16px;
     width: 647px;
     font-size: 22px;
-    font-family: 'Ubuntu', serif;
+    font-family : 'Gentium Book Basic', serif;
     display: none;
 }
 

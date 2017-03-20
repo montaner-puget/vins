@@ -1,6 +1,3 @@
-var db = openDb();
-var objvins = getVins(db);
-console.log('OBJ: '+objvins);
 //Register the ServiceWorker
 
 if ('serviceWorker' in navigator) { 
@@ -14,27 +11,26 @@ if ('serviceWorker' in navigator) {
 
 //Listen for claiming of our ServiceWorker
 
- 
 navigator.serviceWorker.addEventListener('controllerchange', function(event) {
   console.log(
     '[controllerchange] A "controllerchange" event has happened ' +
     'within navigator.serviceWorker: ', event
   );
-
+  
+    navigator.serviceWorker.controller.postMessage(urlsPdf);
+    
 //Listen for changes in the state of our ServiceWorker
 
- 
   navigator.serviceWorker.controller.addEventListener('statechange',
     function() {
       console.log('[controllerchange][statechange] ' +
         'A "statechange" has occured: ', this.state
       );
-
+      
 //If the ServiceWorker becomes “activated”, let the user know they can go offline!
 
- 
       if (this.state === 'activated') {
-
+    
         alert("Le mode hors ligne peut être activé !");
       }
     }
