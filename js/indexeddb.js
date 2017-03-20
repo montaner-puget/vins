@@ -150,7 +150,7 @@ function getVins() {
 
 function getUrlsPdf() {
     for (var i in  objVins) {
-        var pdf = "https://lesliecordier.github.io/mtnr/" + objVins[i]['pdf'];
+        var pdf = "https://montaner-puget.github.io/vins/" + objVins[i]['pdf'];
         if (urlsPdf.indexOf(pdf) === -1 && objVins[i]['pdf'] !== '#') {
             urlsPdf.push(pdf);
         }

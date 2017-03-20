@@ -14,6 +14,7 @@ var REQUIRED_FILES = [
     "https://montaner-puget.github.io/vins/js/loader.js",
     "https://montaner-puget.github.io/vins/js/indexeddb.js",
     "https://montaner-puget.github.io/vins/js/fonctions.carte.js",
+    "https://montaner-puget.github.io/vins/js/initPage.js",
     "https://montaner-puget.github.io/vins/images/home.png",
     "https://montaner-puget.github.io/vins/images/vignoble.jpg",
     "https://montaner-puget.github.io/vins/images/verres-vins.jpg",
