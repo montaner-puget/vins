@@ -25,7 +25,7 @@
                         <div class="col-md-8">
                             <input type="file" name="import-xls" id="import-xls">
                             <p class="help-block">Attention, les données actuelles seront écrasées par ces nouvelles données.</p>
-                            <?php if (!empty($message1)) echo "<div class=\"alert alert-success col-md-7\">$message1</div>" ?>
+                            <?php if (!empty($message1)) echo "<div id=\"updateIdb\" class=\"alert alert-success col-md-7\">$message1</div>" ?>
                             <?php if (!empty($erreur1)) echo "<div class=\"alert alert-danger col-md-7\">$erreur1</div>" ?>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <label class="col-md-4"  for="import-doc">Télécharger un fichier PDF ou une image JPEG</label>
                         <div class="col-md-8">
                             <input type="file" name="import-doc" id="import-doc">
-                            <p class="help-block">Le fichier doit avoir le même nom que dans le fichier vins.xls afin d'être correctement associé au vin.</p>
+                            <p class="help-block">Le fichier doit avoir le même nom que dans le fichier vins.xls afin d"être correctement associé au vin.</p>
                             <?php if (!empty($message2)) echo "<div class=\"alert alert-success col-md-7\">$message2</div>" ?>
                             <?php if (!empty($erreur2)) echo "<div class=\"alert alert-danger col-md-7\">$erreur2</div>" ?>
                         </div>

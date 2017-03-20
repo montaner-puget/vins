@@ -19,7 +19,6 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
   
         setTimeout(function(){
             var files = getRequiredFiles();
-            console.log('[promise] '+files);
             navigator.serviceWorker.controller.postMessage(files);
         },1500);
     

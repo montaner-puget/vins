@@ -27,6 +27,17 @@ function verifInput(input){
 
 $(function(){
 
+    $("#updateIdb").on('change', function(){
+        console.log("ONCHANGE EVENT");
+        if($("#updateIdb").val() !== "") {
+        console.log("VAL: "+$("#updateIdb").val());  
+            DB_VERSION++;
+            openDb();
+        }
+    });
+
+
+
     /***********************
      *      Sommaire       *
      ***********************/ 
