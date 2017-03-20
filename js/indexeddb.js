@@ -23,6 +23,7 @@ function openDb() {
     }
 
     req.onupgradeneeded = function (evt) {
+        db = this.result;
         console.log(evt);
         // Loader
         $('#vins, #offres').css('display', 'none');
