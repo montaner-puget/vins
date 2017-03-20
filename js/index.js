@@ -17,7 +17,7 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
     'within navigator.serviceWorker: ', event
   );
         var files = new Promise(function(resolve, reject){
-            resolve(getRequiredFiles());
+            resolve(getRequiredFiles);
             reject(console.log('ERROR PROMISE'));
         });
         files.then(function(f){console.log(f);});

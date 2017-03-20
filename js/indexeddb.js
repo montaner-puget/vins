@@ -51,7 +51,7 @@ function openDb() {
                         vinsObjectStore.add(data[i]);
                     }
                     console.log('import xls ok');
-                    location.reload();
+//                    location.reload();
                 }).catch(function (err) {
             console.log('Error:', err);
         });
