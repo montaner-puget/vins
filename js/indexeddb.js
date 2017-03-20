@@ -6,16 +6,17 @@ DB_NAME = 'montaner-indexeddb-vins';
 DB_VERSION = 1; // Use only int, not float 
 DB_STORE_NAME = 'vins';
 
-var db;
+var db, objVins;
 
 /**
  * Open database or create it if not exists
  */
 function openDb() {
     var req = window.indexedDB.open(DB_NAME, DB_VERSION);
-    var db = this.result;
     console.log("openDb ...");
     req.onsuccess = function (evt) {
+        db = this.result;
+        objVins = getVins();
         console.log("openDb DONE");
     }
     req.onerror = function (evt) {
@@ -48,13 +49,11 @@ function openDb() {
                         vinsObjectStore.add(data[i]);
                     }
                     console.log('import xls ok');
-//                    location.reload();
+                    location.reload();
                 }).catch(function (err) {
             console.log('Error:', err);
         });
     }
-    
-        return db;
 }
 
 
@@ -145,7 +144,7 @@ function getVins() {
     return objvins;
 }
 
-function getRequiredFiles(objVins) {
+function getRequiredFiles() {
     var required_files = [
     "https://montaner-puget.github.io/vins/index.html",
     "https://montaner-puget.github.io/vins/css/jquery.mobile-1.4.5.css",
@@ -179,24 +178,24 @@ function getRequiredFiles(objVins) {
     return required_files;
 }
 
-//// Open database or create it if not exists
-//openDb();
-//
-//// Creation table index.html
-//setTimeout(function () {
-//    
-//    createCheckboxRegion(objVins);
-//    createCheckboxDomaine(objVins);
-//    createCheckboxCouleur(objVins);
-//    addLignesVins(objVins);
-//
-//    $('#listevins .tablesorter').tablesorter({sortList: [[0, 0]], headers: {2: {sorter: 'digit'}}});
-//
-//    $("#resultats_recherche").hide();
-//    $("#search").val("");
-//    search(objVins);
-//    showHideLines(objVins);
-//    createPopup(objVins);
-//    checkAll(objVins);
-//}, 1000);
+// Open database or create it if not exists
+openDb();
+
+// Creation table index.html
+setTimeout(function () {
+    
+    createCheckboxRegion(objVins);
+    createCheckboxDomaine(objVins);
+    createCheckboxCouleur(objVins);
+    addLignesVins(objVins);
+
+    $('#listevins .tablesorter').tablesorter({sortList: [[0, 0]], headers: {2: {sorter: 'digit'}}});
+
+    $("#resultats_recherche").hide();
+    $("#search").val("");
+    search(objVins);
+    showHideLines(objVins);
+    createPopup(objVins);
+    checkAll(objVins);
+}, 1000);
 

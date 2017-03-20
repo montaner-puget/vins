@@ -17,40 +17,11 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
     'within navigator.serviceWorker: ', event
   );
   
-        function opendb(db){ 
-            return new Promise(function(resolve, reject){
-            console.log("promise...open db");
-            openDb();
-                console.log('db= '+db);
-            if (db){
-                resolve(db);
-            }else{
-                reject('erreur ouverture db');
-            }
-        });
-    }
-        opendb(db).
-                then(function(){
-                    var objVins = getVins();
-                    createCheckboxRegion(objVins);
-                    createCheckboxDomaine(objVins);
-                    createCheckboxCouleur(objVins);
-                    addLignesVins(objVins);
-
-                    $('#listevins .tablesorter').tablesorter({sortList: [[0, 0]], headers: {2: {sorter: 'digit'}}});
-
-                    $("#resultats_recherche").hide();
-                    $("#search").val("");
-                    search(objVins);
-                    showHideLines(objVins);
-                    createPopup(objVins);
-                    checkAll(objVins);
-                    getRequiredFiles(objVins);
-                }).
-                then(function(files){
+        setTimeout(function(){
+            var files = getRequiredFiles();
             console.log('[promise] '+files);
             navigator.serviceWorker.controller.postMessage(files);
-        });
+        },1500);
     
 //Listen for changes in the state of our ServiceWorker
 
