@@ -17,7 +17,6 @@ function openDb() {
     console.log("openDb ...");
     req.onsuccess = function (evt) {
         console.log("openDb DONE");
-        return db;
     }
     req.onerror = function (evt) {
         console.error("openDb:", evt.target.errorCode);
@@ -54,6 +53,8 @@ function openDb() {
             console.log('Error:', err);
         });
     }
+    
+        return db;
 }
 
 
