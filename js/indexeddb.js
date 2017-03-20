@@ -199,3 +199,4 @@ function getRequiredFiles(objVins) {
 //    checkAll(objVins);
 //}, 1000);
 
+            console.log('idb '+openDb());
