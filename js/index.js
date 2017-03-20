@@ -20,7 +20,7 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
         function opendb(db){ 
             return new Promise(function(resolve, reject){
             console.log("promise...open db");
-            openDb();
+            openDb().onsuccess;
             if (db){
                 console.log('db= '+db);
                 resolve(db);
