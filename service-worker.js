@@ -1,5 +1,5 @@
 var CACHE_NAME = 'montaner-V1';
-var data;
+var data = [];
 
 self.addEventListener('install', function (event) {
     console.log('[install]');
