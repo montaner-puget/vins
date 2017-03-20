@@ -16,17 +16,23 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
     '[controllerchange] A "controllerchange" event has happened ' +
     'within navigator.serviceWorker: ', event
   );
-        var getfiles = new Promise(function(resolve, reject){
+  
+        var openDb = new Promise(function(resolve){
+            resolve(openDb());
+        });
+        var getvins = new Promise(function(resolve){
+           resolve(getVins());
+        });
+        var getfiles = new Promise(function(resolve){
             resolve(getRequiredFiles());
         });
-        getfiles.then(function(files){
+        openDb.
+                then(getVins()).
+                then(getFiles()).
+                then(function(files){
             console.log('[promise] '+files);
             navigator.serviceWorker.controller.postMessage(files);
         });
-//        fetch(getRequiredFiles()).then(function(files){
-//            console.log('ADD REQUIRED FILES');
-//            navigator.serviceWorker.controller.postMessage(files);
-//        });
     
 //Listen for changes in the state of our ServiceWorker
 
