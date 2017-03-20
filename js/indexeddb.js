@@ -5,11 +5,9 @@
 DB_NAME = 'montaner-indexeddb-vins';
 DB_VERSION = 1; // Use only int, not float 
 DB_STORE_NAME = 'vins';
-CACHE_NAME = 'montaner-V';
 
 var db, objVins;
 var urlsPdf = [];
-var cacheVersion = 0;
 
 /**
  * Open database or create it if not exists
@@ -54,8 +52,6 @@ function openDb() {
                         vinsObjectStore.add(data[i]);
                     }
                     console.log('import xls ok');
-                    cacheVersion++;
-                    CACHE_NAME += cacheVersion ;
                     location.reload();
                 }).catch(function (err) {
             console.log('Error:', err);
@@ -182,6 +178,6 @@ setTimeout(function () {
     createPopup(objVins);
     checkAll(objVins);
     urlsPdf = getUrlsPdf();
-    console.log(CACHE_NAME);
+    console.log(urlsPdf);
 }, 1000);
 
