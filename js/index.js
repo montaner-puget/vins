@@ -18,7 +18,7 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
   );
   
     event.waitUntil(
-        getUrlsPdf().then(function(files){
+        getRequiredFiles().then(function(files){
             navigator.serviceWorker.controller.postMessage(files);
         })
     );

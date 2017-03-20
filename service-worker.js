@@ -1,4 +1,4 @@
-var CACHE_NAME = 'montaner-V2';
+var CACHE_NAME = 'montaner-V3';
 var data = [];
 
 self.addEventListener('install', function (event) {

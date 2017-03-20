@@ -171,7 +171,7 @@ function getVins() {
     return objvins;
 }
 
-function getrequired_files() {
+function getRequiredFiles() {
     for (var i in  objVins) {
         var pdf = "https://montaner-puget.github.io/vins/" + objVins[i]['pdf'];
         if (required_files.indexOf(pdf) === -1 && objVins[i]['pdf'] !== '#') {
@@ -200,7 +200,7 @@ setTimeout(function () {
     showHideLines(objVins);
     createPopup(objVins);
     checkAll(objVins);
-    getrequired_files();
+    getRequiredFiles();
     console.dir(required_files);
 }, 1000);
 
