@@ -17,11 +17,18 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
     'within navigator.serviceWorker: ', event
   );
   
-        var opendb = new Promise(function(resolve){
+        function opendb(db){ 
+            return new Promise(function(resolve, reject){
             console.log("promise...open db");
-            resolve(openDb());
+            openDb();
+            if (db !== 'undefined'){
+                resolve(db);
+            }else{
+                reject('erreur ouverture db');
+            }
         });
-        opendb.
+    }
+        opendb(db).
                 then(function(){
                     var objVins = getVins();
                     createCheckboxRegion(objVins);
