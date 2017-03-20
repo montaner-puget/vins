@@ -1,4 +1,4 @@
-var CACHE_NAME = 'montaner-V2';
+
 // Files required to make this app work offline
 var REQUIRED_FILES = [
     "https://montaner-puget.github.io/vins/index.html",
@@ -52,6 +52,15 @@ self.addEventListener('activate', function (event) {
     console.log('[activate] Activating ServiceWorker!');
     // Calling claim() to force a “controllerchange” event on navigator.serviceWorker
     console.log('[activate] Claiming this ServiceWorker!');
+    event.waitUntil(
+    caches.keys().then(function(keyList) {
+      return Promise.all(keyList.map(function(key) {
+        if (CACHE_NAME.indexOf(key) === -1) {
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
     event.waitUntil(self.clients.claim());
 });
 
