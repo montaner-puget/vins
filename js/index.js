@@ -17,11 +17,10 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
     'within navigator.serviceWorker: ', event
   );
   
-    event.waitUntil(
         getRequiredFiles().then(function(files){
+            console.log('ADD REQUIRED FILES');
             navigator.serviceWorker.controller.postMessage(files);
         })
-    );
     
 //Listen for changes in the state of our ServiceWorker
 

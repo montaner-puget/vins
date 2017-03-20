@@ -59,6 +59,7 @@ function update(request) {
 
 function updateRequiredFiles(url) {
     if(data.indexOf(url) === -1){
+        data.splice(data.indexOf(url),1);
         data.push(url);
     }
 }
