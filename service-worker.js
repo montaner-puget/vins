@@ -1,4 +1,4 @@
-var CACHE_NAME = 'montaner-V3';
+var CACHE_NAME = 'montaner-V4';
 // Files required to make this app work offline
 var REQUIRED_FILES = [
     "https://montaner-puget.github.io/vins/index.html",
