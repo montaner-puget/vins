@@ -22,6 +22,7 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
             console.log("promise...open db");
             openDb();
             if (db !== 'undefined'){
+                console.log('db= '+db);
                 resolve(db);
             }else{
                 reject('erreur ouverture db');
