@@ -200,7 +200,5 @@ setTimeout(function () {
     showHideLines(objVins);
     createPopup(objVins);
     checkAll(objVins);
-    getRequiredFiles();
-    console.dir(required_files);
 }, 1000);
 
