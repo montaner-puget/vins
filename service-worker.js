@@ -1,48 +1,11 @@
-var CACHE_NAME = 'montaner-V4';
-// Files required to make this app work offline
-var REQUIRED_FILES = [
-    "https://montaner-puget.github.io/vins/index.html",
-    "https://montaner-puget.github.io/vins/css/jquery.mobile-1.4.5.css",
-    "https://montaner-puget.github.io/vins/css/style.css",
-    "https://montaner-puget.github.io/vins/js/jquery.js",
-    "https://montaner-puget.github.io/vins/js/xls.core.min.js",
-    "https://montaner-puget.github.io/vins/js/alasql.min.js",
-    "https://montaner-puget.github.io/vins/js/jquery.preload.min.js",
-    "https://montaner-puget.github.io/vins/js/jquery.mobile-1.4.5.min.js",
-    "https://montaner-puget.github.io/vins/js/jquery.tablesorter.min.js",
-    "https://montaner-puget.github.io/vins/js/index.js",
-    "https://montaner-puget.github.io/vins/js/loader.js",
-    "https://montaner-puget.github.io/vins/js/indexeddb.js",
-    "https://montaner-puget.github.io/vins/js/fonctions.carte.js",
-    "https://montaner-puget.github.io/vins/js/initPage.js",
-    "https://montaner-puget.github.io/vins/images/home.png",
-    "https://montaner-puget.github.io/vins/images/vignoble.jpg",
-    "https://montaner-puget.github.io/vins/images/verres-vins.jpg",
-    "https://montaner-puget.github.io/vins/images/sprites.gif",
-    "https://montaner-puget.github.io/vins/images/cepage.jpg",
-    "https://montaner-puget.github.io/vins/images/fond-accueil.jpg",
-    "https://montaner-puget.github.io/vins/icones/doc.png",
-    "https://montaner-puget.github.io/vins/icones/desc.gif",
-    "https://montaner-puget.github.io/vins/icones/bg.gif"]
+var CACHE_NAME = 'montaner-V1';
 
 self.addEventListener('install', function (event) {
     console.log('[install]');
     // Perform install step: loading each required file into cache
-    event.waitUntil(
-            caches.open(CACHE_NAME)
-            .then(function (cache) {
-                // Add all offline dependencies to the cache
-                console.log('[install] Caches opened, adding all core components ' +
-                        'to cache');
-                return cache.addAll(REQUIRED_FILES);
-            })
-            .then(function () {
-                console.log('[install] All required resources have been cached, ' +
-                        'we\'re good!');
-                return self.skipWaiting(); // Waiting for client event
-            })
-            );
+    event.waitUntil(self.skipWaiting());
 });
+
 self.addEventListener('fetch', function (event) {
     event.respondWith(fromCache(event.request));
     event.waitUntil(update(event.request));
