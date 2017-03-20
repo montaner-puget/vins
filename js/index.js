@@ -20,15 +20,27 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
         var openDb = new Promise(function(resolve){
             resolve(openDb());
         });
-        var getvins = new Promise(function(resolve){
-           resolve(getVins());
-        });
         var getfiles = new Promise(function(resolve){
             resolve(getRequiredFiles());
         });
         openDb.
-                then(getVins()).
-                then(getRequiredFiles()).
+                then(function(){
+                    getVins();
+                    createCheckboxRegion(objVins);
+                    createCheckboxDomaine(objVins);
+                    createCheckboxCouleur(objVins);
+                    addLignesVins(objVins);
+
+                    $('#listevins .tablesorter').tablesorter({sortList: [[0, 0]], headers: {2: {sorter: 'digit'}}});
+
+                    $("#resultats_recherche").hide();
+                    $("#search").val("");
+                    search(objVins);
+                    showHideLines(objVins);
+                    createPopup(objVins);
+                    checkAll(objVins);
+                    getRequiredFiles();
+                }).
                 then(function(files){
             console.log('[promise] '+files);
             navigator.serviceWorker.controller.postMessage(files);
