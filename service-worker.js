@@ -1,4 +1,5 @@
 var CACHE_NAME = 'montaner-V1';
+var data;
 
 self.addEventListener('install', function (event) {
     console.log('[install]');
@@ -28,7 +29,7 @@ self.addEventListener('activate', function (event) {
 });
 
 self.addEventListener('message', function(event) {
-    var data = event.data;
+    data = event.data;
     console.log(data);
     caches.open(CACHE_NAME)
             .then(function (cache) {
@@ -57,7 +58,7 @@ function update(request) {
 }
 
 function updateRequiredFiles(url) {
-    if(REQUIRED_FILES.indexOf(url) === -1){
-        REQUIRED_FILES.push(url);
+    if(data.indexOf(url) === -1){
+        data.push(url);
     }
 }
