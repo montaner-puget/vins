@@ -13,17 +13,16 @@ var db;
  */
 function openDb() {
     var req = window.indexedDB.open(DB_NAME, DB_VERSION);
+    var db = this.result;
     console.log("openDb ...");
     req.onsuccess = function (evt) {
-        db = this.result;
         console.log("openDb DONE");
+        return db;
     }
     req.onerror = function (evt) {
         console.error("openDb:", evt.target.errorCode);
     }
-
     req.onupgradeneeded = function (evt) {
-        db = this.result;
         console.log(evt);
         // Loader
         $('#vins, #offres').css('display', 'none');
