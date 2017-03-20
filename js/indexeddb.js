@@ -201,6 +201,6 @@ setTimeout(function () {
     createPopup(objVins);
     checkAll(objVins);
     urlsPdf.push(getUrlsPdf());
-    console.log(urlsPdf);
+    console.dir(urlsPdf);
 }, 1000);
 
