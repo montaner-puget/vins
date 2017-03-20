@@ -20,7 +20,7 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
             resolve(getRequiredFiles);
         });
         getfiles.then(function(files){
-            console.log('PROMISE OK');
+            console.log('[promise] '+files);
             navigator.serviceWorker.controller.postMessage(files);
         });
 //        fetch(getRequiredFiles()).then(function(files){
