@@ -18,12 +18,11 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
   );
   
         var opendb = new Promise(function(resolve){
-            console.log(openDb());
             resolve(openDb());
         });
         opendb.
-                then(function(db){
-                    var objVins = getVins(db);
+                then(function(){
+                    var objVins = getVins();
                     createCheckboxRegion(objVins);
                     createCheckboxDomaine(objVins);
                     createCheckboxCouleur(objVins);
