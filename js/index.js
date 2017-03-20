@@ -28,7 +28,7 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
         });
         openDb.
                 then(getVins()).
-                then(getFiles()).
+                then(getRequiredFiles()).
                 then(function(files){
             console.log('[promise] '+files);
             navigator.serviceWorker.controller.postMessage(files);
