@@ -7,7 +7,7 @@ DB_VERSION = 1; // Use only int, not float
 DB_STORE_NAME = 'vins';
 
 var db, objVins;
-var urlsPdf = [
+var required_files = [
     "https://montaner-puget.github.io/vins/index.html",
     "https://montaner-puget.github.io/vins/css/jquery.mobile-1.4.5.css",
     "https://montaner-puget.github.io/vins/css/style.css",
@@ -171,14 +171,14 @@ function getVins() {
     return objvins;
 }
 
-function getUrlsPdf() {
+function getrequired_files() {
     for (var i in  objVins) {
         var pdf = "https://montaner-puget.github.io/vins/" + objVins[i]['pdf'];
-        if (urlsPdf.indexOf(pdf) === -1 && objVins[i]['pdf'] !== '#') {
-            urlsPdf.push(pdf);
+        if (required_files.indexOf(pdf) === -1 && objVins[i]['pdf'] !== '#') {
+            required_files.push(pdf);
         }
     }
-    return urlsPdf;
+    return required_files;
 }
 
 // Open database or create it if not exists
@@ -200,7 +200,7 @@ setTimeout(function () {
     showHideLines(objVins);
     createPopup(objVins);
     checkAll(objVins);
-    getUrlsPdf();
-    console.dir(urlsPdf);
+    getrequired_files();
+    console.dir(required_files);
 }, 1000);
 
