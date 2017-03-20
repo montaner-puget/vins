@@ -178,5 +178,6 @@ setTimeout(function () {
     createPopup(objVins);
     checkAll(objVins);
     urlsPdf = getUrlsPdf();
+    console.log(urlsPdf);
 }, 1000);
 
