@@ -16,11 +16,11 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
     '[controllerchange] A "controllerchange" event has happened ' +
     'within navigator.serviceWorker: ', event
   );
-        var files = new Promise(function(resolve, reject){
-            resolve(getRequiredFiles);
-            reject(console.log('ERROR PROMISE'));
+        
+        Promise(getRequiredFiles).then(function(files){
+            console.log('PROMISE OK');
+            navigator.serviceWorker.controller.postMessage(files);
         });
-        files.then(function(f){console.log(f);});
 //        fetch(getRequiredFiles()).then(function(files){
 //            console.log('ADD REQUIRED FILES');
 //            navigator.serviceWorker.controller.postMessage(files);
