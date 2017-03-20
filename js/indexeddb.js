@@ -6,7 +6,6 @@ DB_NAME = 'montaner-indexeddb-vins';
 DB_VERSION = 1; // Use only int, not float 
 DB_STORE_NAME = 'vins';
 
-var db;
 
 /**
  * Open database or create it if not exists
@@ -15,7 +14,7 @@ function openDb() {
     var req = window.indexedDB.open(DB_NAME, DB_VERSION);
     console.log("openDb ...");
     req.onsuccess = function (evt) {
-        db = this.result;
+        var db = this.result;
         console.log("openDb DONE");
         return db;
     }
