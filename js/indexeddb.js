@@ -6,7 +6,7 @@ DB_NAME = 'montaner-indexeddb-vins';
 DB_VERSION = 1; // Use only int, not float 
 DB_STORE_NAME = 'vins';
 
-var db, objVins;
+var db;
 
 /**
  * Open database or create it if not exists
@@ -16,9 +16,8 @@ function openDb() {
     console.log("openDb ...");
     req.onsuccess = function (evt) {
         db = this.result;
-        objVins = getVins();
         console.log("openDb DONE");
-
+        return db;
     }
     req.onerror = function (evt) {
         console.error("openDb:", evt.target.errorCode);
@@ -59,7 +58,7 @@ function openDb() {
 }
 
 
-function getVins() {
+function getVins(db) {
 
     var store = db.transaction(DB_STORE_NAME).objectStore(DB_STORE_NAME);
     var req;
@@ -143,11 +142,10 @@ function getVins() {
             console.log("No more entries");
         }
     }
-
     return objvins;
 }
 
-function getRequiredFiles() {
+function getRequiredFiles(objVins) {
     var required_files = [
     "https://montaner-puget.github.io/vins/index.html",
     "https://montaner-puget.github.io/vins/css/jquery.mobile-1.4.5.css",
@@ -181,24 +179,24 @@ function getRequiredFiles() {
     return required_files;
 }
 
-// Open database or create it if not exists
-openDb();
-
-// Creation table index.html
-setTimeout(function () {
-    
-    createCheckboxRegion(objVins);
-    createCheckboxDomaine(objVins);
-    createCheckboxCouleur(objVins);
-    addLignesVins(objVins);
-
-    $('#listevins .tablesorter').tablesorter({sortList: [[0, 0]], headers: {2: {sorter: 'digit'}}});
-
-    $("#resultats_recherche").hide();
-    $("#search").val("");
-    search(objVins);
-    showHideLines(objVins);
-    createPopup(objVins);
-    checkAll(objVins);
-}, 1000);
+//// Open database or create it if not exists
+//openDb();
+//
+//// Creation table index.html
+//setTimeout(function () {
+//    
+//    createCheckboxRegion(objVins);
+//    createCheckboxDomaine(objVins);
+//    createCheckboxCouleur(objVins);
+//    addLignesVins(objVins);
+//
+//    $('#listevins .tablesorter').tablesorter({sortList: [[0, 0]], headers: {2: {sorter: 'digit'}}});
+//
+//    $("#resultats_recherche").hide();
+//    $("#search").val("");
+//    search(objVins);
+//    showHideLines(objVins);
+//    createPopup(objVins);
+//    checkAll(objVins);
+//}, 1000);
 

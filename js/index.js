@@ -20,12 +20,9 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
         var openDb = new Promise(function(resolve){
             resolve(openDb());
         });
-        var getfiles = new Promise(function(resolve){
-            resolve(getRequiredFiles());
-        });
         openDb.
-                then(function(){
-                    getVins();
+                then(function(db){
+                    var objVins = getVins(db);
                     createCheckboxRegion(objVins);
                     createCheckboxDomaine(objVins);
                     createCheckboxCouleur(objVins);
@@ -39,7 +36,7 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
                     showHideLines(objVins);
                     createPopup(objVins);
                     checkAll(objVins);
-                    getRequiredFiles();
+                    getRequiredFiles(objVins);
                 }).
                 then(function(files){
             console.log('[promise] '+files);
