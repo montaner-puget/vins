@@ -17,9 +17,11 @@ navigator.serviceWorker.addEventListener('controllerchange', function(event) {
     'within navigator.serviceWorker: ', event
   );
   
-    getUrlsPdf().then(function(files){
-        navigator.serviceWorker.controller.postMessage(files);
-    });
+    event.waitUntil(
+        getUrlsPdf().then(function(files){
+            navigator.serviceWorker.controller.postMessage(files);
+        })
+    );
     
 //Listen for changes in the state of our ServiceWorker
 
